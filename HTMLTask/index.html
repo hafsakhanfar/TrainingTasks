@@ -23,36 +23,36 @@
     
    
     <form action="https://formspree.io/f/mvoleoww" method="post">
-        <p>
+        <div>
             <label for="FName">full Name </label>
-        </p>
-        <input type="text" id="FName" name="fullname" placeholder="firstName LastName" tabindex="1"
+        </div>
+        <input type="text" id="FName" name="fullname" placeholder="firstName LastName" 
         pattern="^[a-zA-Z]+\s?[a-zA-Z]+$" required>
-        <p> 
+        <div> 
             <label for="email">Enter your emial </label>
-        </p>
+        </div>
         
-        <input type="email" id="email" name="email" placeholder="yourname@example.com" tabindex="2" required>
+        <input type="email" id="email" name="email" placeholder="yourname@example.com"  required>
 
-        <p>
+        <div>
             <Label for="password">your password</Label>
-        </p>
-            <input type="password" id="password" name="password" min="8" tabindex="3" placeholder="at least 8 char" >
+        </div>
+            <input type="password" id="password" name="password" min="8"  placeholder="at least 8 char" >
       
-        <p>
+        <div>
          
             <label for="phone">Enter your phone number </label>
-        </p>
-        <input type="text" id="phone"  name="phoneNumber" placeholder="570-995564523" tabindex="4" pattern="[0-9]{3}[-][0-9]{9}" required>
+        </div>
+        <input type="text" id="phone"  name="phoneNumber" placeholder="570-995564523"  pattern="[0-9]{3}[-][0-9]{9}" required>
 
-        <p>
+        <div>
             <label for="BD">BirthDate </label>
-        </p>
-        <input type="date" id="BD" name="birthDate" tabindex="5" placeholder="your BirthDate">
-        <p>
+        </div>
+        <input type="date" id="BD" name="birthDate"  placeholder="your BirthDate">
+        <div>
             <label for="country">country name </label>
-        </p>
-        <select id="country" name="Country" tabindex="6">
+        </div>
+        <select id="country" name="Country" >
             <optgroup label="MENA country">
                 <option value="Algeria">Algeria</option>
                 <option value="Armenia">Armenia</option>
@@ -78,20 +78,21 @@
                 <option value="Yemen">Yemen</option>
                 <option value="Somalia">Somalia</option>
                 <option value="Sudan">Sudan</option>
+            </optgroup>
         </select>
 
-        <p>Plan:</p>
-        <label><input type="radio" name="plan" tabindex="7" value="free">Free</label>
-        <label><input type="radio" name="plan"  tabindex="8" value="pro">Pro</label>
-        <p>
+        <div>Plan:</div>
+        <label><input type="radio" name="plan"  value="free">Free</label>
+        <label><input type="radio" name="plan"   value="pro">Pro</label>
+        <div>
 
 
-            <label><input type="checkbox" value="Agree" tabindex="9" name="condition" required>
+            <label><input type="checkbox" value="Agree"  name="condition" required>
                 I agree to terms and conditions</label>
-        </p>
+            </div>
 
 
-        <input type="submit" tabindex="10" name="submit">
+        <input type="submit"  name="submit">
     </form>
 
 </body>
