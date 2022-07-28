@@ -1,100 +1,120 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SingUp page</title>
 
     <style>
-
-        p{
-         padding-top: 15px;
-         
-        }
+      p {
+        padding-top: 15px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>SignUP</h1>
 
-    
-   
     <form action="https://formspree.io/f/mvoleoww" method="post">
-        <div>
-            <label for="FName">full Name </label>
-        </div>
-        <input type="text" id="FName" name="fullname" placeholder="firstName LastName" 
-        pattern="^[a-zA-Z]+\s?[a-zA-Z]+$" required>
-        <div> 
-            <label for="email">Enter your emial </label>
-        </div>
-        
-        <input type="email" id="email" name="email" placeholder="yourname@example.com"  required>
+      <div>
+        <label for="FName">full Name </label>
+      </div>
+      <input
+        type="text"
+        id="FName"
+        name="fullname"
+        placeholder="firstName LastName"
+        pattern="^[a-zA-Z]+\s?[a-zA-Z]+$"
+        required
+      />
+      <div>
+        <label for="email">Enter your emial </label>
+      </div>
 
-        <div>
-            <Label for="password">your password</Label>
-        </div>
-            <input type="password" id="password" name="password" min="8"  placeholder="at least 8 char" >
-      
-        <div>
-         
-            <label for="phone">Enter your phone number </label>
-        </div>
-        <input type="text" id="phone"  name="phoneNumber" placeholder="570-995564523"  pattern="[0-9]{3}[-][0-9]{9}" required>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="yourname@example.com"
+        required
+      />
 
-        <div>
-            <label for="BD">BirthDate </label>
-        </div>
-        <input type="date" id="BD" name="birthDate"  placeholder="your BirthDate">
-        <div>
-            <label for="country">country name </label>
-        </div>
-        <select id="country" name="Country" >
-            <optgroup label="MENA country">
-                <option value="Algeria">Algeria</option>
-                <option value="Armenia">Armenia</option>
-                <option value="Azerbaijan">Azerbaijan</option>
-                <option value="Bahrain">Bahrain</option>
-                <option value="Djibouti">Djibouti</option>
-                <option value="Egypt">Egypt</option>
-                <option value="Iran">Iran</option>
-                <option value="Iraq">Iraq</option>
-                <option value="Palestine">Palestine</option>
-                <option value="Jordan">Jordan</option>
-                <option value="Kuwait">Kuwait</option>
-                <option value="Lebanon">Lebanon</option>
-                <option value="Libya">Libya</option>
-                <option value="Morocco">Morocco</option>
-                <option value="Mauritania">Mauritania</option>
-                <option value="Oman">Oman</option>
-                <option value="Qatar">Qatar</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Syria">Syria</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="Yemen">Yemen</option>
-                <option value="Somalia">Somalia</option>
-                <option value="Sudan">Sudan</option>
-            </optgroup>
-        </select>
+      <div>
+        <label for="password">your password</label>
+      </div>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        min="8"
+        placeholder="at least 8 char"
+      />
 
-        <div>Plan:</div>
-        <label><input type="radio" name="plan"  value="free">Free</label>
-        <label><input type="radio" name="plan"   value="pro">Pro</label>
-        <div>
+      <div>
+        <label for="phone">Enter your phone number </label>
+      </div>
+      <input
+        type="text"
+        id="phone"
+        name="phoneNumber"
+        placeholder="570-995564523"
+        pattern="[0-9]{3}[-][0-9]{9}"
+        required
+      />
 
+      <div>
+        <label for="BD">BirthDate </label>
+      </div>
+      <input
+        type="date"
+        id="BD"
+        name="birthDate"
+        placeholder="your BirthDate"
+      />
+      <div>
+        <label for="country">country name </label>
+      </div>
+      <select id="country" name="Country">
+        <optgroup label="MENA country">
+          <option value="Algeria">Algeria</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Azerbaijan">Azerbaijan</option>
+          <option value="Bahrain">Bahrain</option>
+          <option value="Djibouti">Djibouti</option>
+          <option value="Egypt">Egypt</option>
+          <option value="Iran">Iran</option>
+          <option value="Iraq">Iraq</option>
+          <option value="Palestine">Palestine</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Kuwait">Kuwait</option>
+          <option value="Lebanon">Lebanon</option>
+          <option value="Libya">Libya</option>
+          <option value="Morocco">Morocco</option>
+          <option value="Mauritania">Mauritania</option>
+          <option value="Oman">Oman</option>
+          <option value="Qatar">Qatar</option>
+          <option value="Saudi Arabia">Saudi Arabia</option>
+          <option value="Syria">Syria</option>
+          <option value="Tunisia">Tunisia</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="Yemen">Yemen</option>
+          <option value="Somalia">Somalia</option>
+          <option value="Sudan">Sudan</option>
+        </optgroup>
+      </select>
 
-            <label><input type="checkbox" value="Agree"  name="condition" required>
-                I agree to terms and conditions</label>
-            </div>
+      <div>Plan:</div>
+      <label><input type="radio" name="plan" value="free" />Free</label>
+      <label><input type="radio" name="plan" value="pro" />Pro</label>
+      <div>
+        <label
+          ><input type="checkbox" value="Agree" name="condition" required /> I
+          agree to terms and conditions</label
+        >
+      </div>
 
-
-        <input type="submit"  name="submit">
+      <input type="submit" name="submit" />
     </form>
-
-</body>
-
+  </body>
 </html>
