@@ -90,6 +90,51 @@ Array.prototype.myFindFunc = function (callback, thisArg) {
 };
 
 /**
+ * This callback is displayed as a global member.
+ * @callback CallbackFun
+ * @param {Object} accmulater
+ * @param {Object} this[i]
+ * @param {number} i
+ * @param {Array} this
+ */
+
+/**
+ * a function that calculate a single value over the array by calling callback fumction
+ *  for each element and passing an intermediate result between the calls.
+ * @param {Array} arr
+ * @param {CallbackFun} Callback
+ * @param {Object} initialValue
+ */
+function myReduce(arr, callback, initialValue = arr[0]) {
+  let i = 0;
+  if (initialValue == arr[0]) {
+    i = 1;
+  }
+  let accmulater = initialValue;
+
+  for (i; i < arr.length; i++) {
+    accmulater = callback(accmulater, arr[i]);
+  }
+  return accmulater;
+}
+
+/**
+ * a function that calculate a single value over the array by calling callback fumction
+ *  for each element and passing an intermediate result between the calls.
+ * @param {CallbackFun} Callback
+ * @param {Object} initialValue
+ * @param {Array} thisArg
+ */
+Array.prototype.myReduceFunc = function (callback, initialValue = 0, thisArg) {
+  let accmulater = initialValue;
+
+  for (let i = 0; i < this.length; i++) {
+    accmulater = callback.call(thisArg, accmulater, this[i], i, this);
+  }
+  return accmulater;
+};
+
+/**
  * example to try the functions
  */
 
@@ -136,3 +181,15 @@ const itemcosted20$ = items.myFindFunc(({ price }) => price > 20);
 console.log(itemcosted20$);
 
 console.log(myFind(items, ({ price }) => price > 20));
+
+const totalPrice = items.myReduceFunc(
+  (acc, currentItem) => acc + currentItem.price,
+  0
+);
+
+console.log(totalPrice);
+console.log(
+  myReduce(items, (acc, currentItem) => ({
+    price: acc.price + currentItem.price,
+  }))
+);
