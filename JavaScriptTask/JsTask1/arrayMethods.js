@@ -125,10 +125,18 @@ function myReduce(arr, callback, initialValue = arr[0]) {
  * @param {Object} initialValue
  * @param {Array} thisArg
  */
-Array.prototype.myReduceFunc = function (callback, initialValue = 0, thisArg) {
+Array.prototype.myReduceFunc = function (
+  callback,
+  initialValue = this[0],
+  thisArg
+) {
+  let i = 0;
+  if (initialValue == this[0]) {
+    i = 1;
+  }
   let accmulater = initialValue;
 
-  for (let i = 0; i < this.length; i++) {
+  for (i; i < this.length; i++) {
     accmulater = callback.call(thisArg, accmulater, this[i], i, this);
   }
   return accmulater;
@@ -182,10 +190,9 @@ console.log(itemcosted20$);
 
 console.log(myFind(items, ({ price }) => price > 20));
 
-const totalPrice = items.myReduceFunc(
-  (acc, currentItem) => acc + currentItem.price,
-  0
-);
+const totalPrice = items.myReduceFunc((acc, currentItem) => ({
+  price: acc.price + currentItem.price,
+}));
 
 console.log(totalPrice);
 console.log(
