@@ -1,3 +1,5 @@
+module.exports = { myFilter, myFind, myMap, myReduce };
+
 /**
  * This callback is displayed as a global member.
  * @callback givenCallback
@@ -13,12 +15,20 @@
  */
 
 function myFilter(arr, callback) {
-  let array = [];
+  if (arr === undefined && callback === undefined) {
+    return "ERROR function couldn't filter because there is neither callback function nor array";
+  } else if (arr === undefined)
+    return "ERROR function couldn't filter because the array is not itialized";
+  else if (callback === undefined) {
+    return "ERROR function couldn't filter because there is no callback function , undefined is not a functoin";
+  } else {
+    let array = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i])) array.push(arr[i]);
+    for (let i = 0; i < arr.length; i++) {
+      if (callback(arr[i])) array.push(arr[i]);
+    }
+    return array;
   }
-  return array;
 }
 
 /**
@@ -43,12 +53,20 @@ Array.prototype.myFilterFunc = function myFilterFunc(callback, thisArg) {
  */
 
 function myMap(arr, callback) {
-  let array = [];
+  if (arr === undefined && callback === undefined) {
+    return "ERROR function couldn't map because there is neither callback function nor array";
+  } else if (arr === undefined)
+    return "ERROR function couldn't map because the array is not itialized";
+  else if (callback === undefined) {
+    return "ERROR function couldn't map because there is no callback function , undefined is not a functoin";
+  } else {
+    let array = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    array.push(callback(arr[i]));
+    for (let i = 0; i < arr.length; i++) {
+      array.push(callback(arr[i]));
+    }
+    return array;
   }
-  return array;
 }
 
 /**
@@ -72,8 +90,16 @@ Array.prototype.myMapFunc = function (callback, thisArg) {
  */
 
 function myFind(arr, callback) {
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i])) return arr[i];
+  if (arr === undefined && callback === undefined) {
+    return "ERROR function couldn't search to find the element because there is neither callback function nor array";
+  } else if (arr === undefined)
+    return "ERROR function couldn't search to find the element because the array is not itialized";
+  else if (callback === undefined) {
+    return "ERROR function couldn't search to find the element because there is no callback function , undefined is not a functoin";
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (callback(arr[i])) return arr[i];
+    }
   }
 }
 
@@ -105,17 +131,25 @@ Array.prototype.myFindFunc = function (callback, thisArg) {
  * @param {CallbackFun} Callback
  * @param {Object} initialValue
  */
-function myReduce(arr, callback, initialValue = arr[0]) {
-  let i = 0;
-  if (initialValue == arr[0]) {
-    i = 1;
-  }
-  let accmulater = initialValue;
+function myReduce(arr, callback, initialValue = arr?.[0]) {
+  if (arr === undefined && callback === undefined) {
+    return "ERROR function couldn't reduce because there is neither callback function nor array";
+  } else if (arr === undefined)
+    return "ERROR function couldn't reduce because the array is not itialized";
+  else if (callback === undefined) {
+    return "ERROR function couldn't reduce because there is no callback function , undefined is not a functoin";
+  } else {
+    let i = 0;
+    if (initialValue == arr[0]) {
+      i = 1;
+    }
+    let accmulater = initialValue;
 
-  for (i; i < arr.length; i++) {
-    accmulater = callback(accmulater, arr[i]);
+    for (i; i < arr.length; i++) {
+      accmulater = callback(accmulater, arr[i]);
+    }
+    return accmulater;
   }
-  return accmulater;
 }
 
 /**
@@ -127,7 +161,7 @@ function myReduce(arr, callback, initialValue = arr[0]) {
  */
 Array.prototype.myReduceFunc = function (
   callback,
-  initialValue = this[0],
+  initialValue = this?.[0],
   thisArg
 ) {
   let i = 0;
@@ -141,62 +175,3 @@ Array.prototype.myReduceFunc = function (
   }
   return accmulater;
 };
-
-/**
- * example to try the functions
- */
-
-const items = [
-  {
-    name: "book",
-    price: 50,
-    id: "12fa21",
-  },
-  {
-    name: "book2",
-    price: 10,
-    id: "12fa21",
-  },
-  {
-    name: "book2",
-    price: 20,
-    id: "12fa21",
-  },
-  {
-    name: "book2",
-    price: 30,
-    id: "12fa21",
-  },
-];
-
-const itemsAsPriceMoreThan20 = items.myFilterFunc(({ price }) => price > 20);
-console.log(itemsAsPriceMoreThan20);
-
-console.log(myFilter(items, ({ price }) => price > 20));
-
-const appliedDiscountItems = items.myMapFunc((item) =>
-  item.price > 20 ? { ...item, price: item.price * 0.99 } : item
-);
-
-console.log(appliedDiscountItems);
-console.log(
-  myMap(items, (item) =>
-    item.price > 20 ? { ...item, price: item.price * 0.99 } : item
-  )
-);
-
-const itemcosted20$ = items.myFindFunc(({ price }) => price > 20);
-console.log(itemcosted20$);
-
-console.log(myFind(items, ({ price }) => price > 20));
-
-const totalPrice = items.myReduceFunc((acc, currentItem) => ({
-  price: acc.price + currentItem.price,
-}));
-
-console.log(totalPrice);
-console.log(
-  myReduce(items, (acc, currentItem) => ({
-    price: acc.price + currentItem.price,
-  }))
-);

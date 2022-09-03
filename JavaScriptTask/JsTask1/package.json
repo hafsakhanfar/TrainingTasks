@@ -1,0 +1,15 @@
+{
+  "name": "jstask1",
+  "version": "1.0.0",
+  "main": "arrayMethods.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.0.1"
+  }
+}
