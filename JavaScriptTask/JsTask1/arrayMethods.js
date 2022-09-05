@@ -16,11 +16,19 @@ module.exports = { myFilter, myFind, myMap, myReduce };
 
 function myFilter(arr, callback) {
   if (arr === undefined && callback === undefined) {
-    return "ERROR function couldn't filter because there is neither callback function nor array";
-  } else if (arr === undefined)
-    return "ERROR function couldn't filter because the array is not itialized";
-  else if (callback === undefined) {
-    return "ERROR function couldn't filter because there is no callback function , undefined is not a functoin";
+    throw new Error(
+      "ERROR function couldn't filter because there is neither callback function nor array"
+    );
+  } else if (arr === undefined) {
+    throw new Error(
+      "ERROR function couldn't filter because the array is not itialized"
+    );
+  } else if (callback === undefined) {
+    throw new Error(
+      "ERROR function couldn't filter because there is no callback function , undefined is not a functoin"
+    );
+  } else if (!Array.isArray(arr)) {
+    throw new Error("Filter function don't accept any object other than array");
   } else {
     let array = [];
 
@@ -54,11 +62,19 @@ Array.prototype.myFilterFunc = function myFilterFunc(callback, thisArg) {
 
 function myMap(arr, callback) {
   if (arr === undefined && callback === undefined) {
-    return "ERROR function couldn't map because there is neither callback function nor array";
-  } else if (arr === undefined)
-    return "ERROR function couldn't map because the array is not itialized";
-  else if (callback === undefined) {
-    return "ERROR function couldn't map because there is no callback function , undefined is not a functoin";
+    throw new Error(
+      "ERROR function couldn't map because there is neither callback function nor array"
+    );
+  } else if (arr === undefined) {
+    throw new Error(
+      "ERROR function couldn't map because the array is not itialized"
+    );
+  } else if (callback === undefined) {
+    throw new Error(
+      "ERROR function couldn't map because there is no callback function , undefined is not a functoin"
+    );
+  } else if (!Array.isArray(arr)) {
+    throw new Error("Map function don't accept any object other than array");
   } else {
     let array = [];
 
@@ -91,11 +107,19 @@ Array.prototype.myMapFunc = function (callback, thisArg) {
 
 function myFind(arr, callback) {
   if (arr === undefined && callback === undefined) {
-    return "ERROR function couldn't search to find the element because there is neither callback function nor array";
-  } else if (arr === undefined)
-    return "ERROR function couldn't search to find the element because the array is not itialized";
-  else if (callback === undefined) {
-    return "ERROR function couldn't search to find the element because there is no callback function , undefined is not a functoin";
+    throw new Error(
+      "ERROR function couldn't search to find the element because there is neither callback function nor array"
+    );
+  } else if (arr === undefined) {
+    throw new Error(
+      "ERROR function couldn't search to find the element because the array is not itialized"
+    );
+  } else if (callback === undefined) {
+    throw new Error(
+      "ERROR function couldn't search to find the element because there is no callback function , undefined is not a functoin"
+    );
+  } else if (!Array.isArray(arr)) {
+    throw new Error("Find function don't accept any object other than array");
   } else {
     for (let i = 0; i < arr.length; i++) {
       if (callback(arr[i])) return arr[i];
@@ -133,11 +157,19 @@ Array.prototype.myFindFunc = function (callback, thisArg) {
  */
 function myReduce(arr, callback, initialValue = arr?.[0]) {
   if (arr === undefined && callback === undefined) {
-    return "ERROR function couldn't reduce because there is neither callback function nor array";
-  } else if (arr === undefined)
-    return "ERROR function couldn't reduce because the array is not itialized";
-  else if (callback === undefined) {
-    return "ERROR function couldn't reduce because there is no callback function , undefined is not a functoin";
+    throw new Error(
+      "ERROR function couldn't reduce because there is neither callback function nor array"
+    );
+  } else if (arr === undefined) {
+    throw new Error(
+      "ERROR function couldn't reduce because the array is not itialized"
+    );
+  } else if (callback === undefined) {
+    throw new Error(
+      "ERROR function couldn't reduce because there is no callback function , undefined is not a functoin"
+    );
+  } else if (!Array.isArray(arr)) {
+    throw new Error("Reduce function don't accept any object other than array");
   } else {
     let i = 0;
     if (initialValue == arr[0]) {
