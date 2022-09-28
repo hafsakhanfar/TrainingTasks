@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <form>
+        <div class="input">
+          <label for="task">Task</label>
+          <input type="text" id="task" name="task" />
+        </div>
+
+        <div class="input">
+          <label for="assignee">assignee</label>
+          <input id="assignee" type="text" name="assignee" />
+          <input type="button" id="add" value="Add" onclick="addTask()" />
+        </div>
+
+        <div class="input">
+          <input
+            type="search"
+            placeholder="search"
+            id="search"
+            onkeyup="searchForTask()"
+          />
+        </div>
+  
+
+      <ul id="list"></ul>
+
+      <div id="footer"></div>
+    </div>
+
+    <div id="confirm" hidden class="modal">
+      <div class="modal-content">
+        <div><p>Are you sure Delete this Task</p></div>
+        <button id="cancel">CANCEL</button>
+        <button id="confirmDelete">Delete</button>
+      </div>
+    </div>
+
+    <script src="JavaScript.js"></script>
+  </body>
+</html>
